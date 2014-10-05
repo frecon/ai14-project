@@ -42,14 +42,14 @@ TODO
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
 \label{sec:introduction}
-The need to be able to write accurate English is growing as the market is becoming more global. For native Swedish speakers it can be easy to write a word that does not make sense in a certain context, by mistake. A traditional spell checker will not detect this kind of mistakes since the words themselves often are correct, but placed in the wrong context.
+The need to be able to write accurate English is growing as the market is becoming more global. For native Swedish speakers it can be easy to write a word that does not make sense in a certain context, by mistake. A traditional spell checker will not detect this kind of mistake since the words themselves often are correct, but placed in the wrong context.
 
-For example if a Swede wants to ask a friend if he has a dinner jacket, the person might say \emph{Do you have a smoking?} believing that the word smoking (Swedish word for dinner jacket) has the same meaning in English. The native English speaker could interpret that what the Swede really is saying is \emph{Do you have a cigarette?}  
+For example if a Swede wants to ask a friend if he has a dinner jacket, the person might say \emph{Do you have a smoking?} believing that the word smoking (Swedish word for dinner jacket) has the same meaning in English. The native English speaker could interpret that what the Swede really intended to say was \emph{Do you have a cigarette?}  
 
-A normal spell checker would not be able to find an error like this, but an algorithm that is looking at the probability of the order of the words might would. The standard way to implement this type of word prediction is by using the so called n-gram model. The n-gram model is due to a 
+A normal spell checker would not be able to find an error like this, but an algorithm that looks at the probability of the word order might. The standard way to implement this type of word prediction is by using the so called n-gram model. The n-gram model is based on 
 statistical language modeling and uses the $n-1$ previous words in a sentence to predict the next word. Examples of n-grams is unigram $n=1$, bigrams $n=2$ and trigrams $n=3$. This is covered in more detail later on in the report \cite{gallagher2004natural}.
 
-We anticipate that a tool that could discover this kind of mistake could be of great help. As far as we know there is no tool like this specialized in Swedes writing in English. The tool should work as a context-dependent word detection.
+We anticipate that a tool that could locate this kind of mistake could be of great help. As far as we know there is no tool like this specialized in Swedes writing in English. The tool should work as a context-dependent word detection.
 
 \subsection{Objective}
 \label{sec:objective}
@@ -58,11 +58,11 @@ The aim for this project is to investigate if it is possible to implement a syst
 \subsection{Hypothesis}
 Our hypothesis is that it is enough to use bigrams and trigrams and a probability threshold to detect words that are out of context in a given text. However, the results will be affected by the quality of the corpus (covered in section 2.1) and we believe that a large and well chosen corpus is vital for the result of this study.
 
-We believe that a combination of bigrams and trigrams will make a good balance in the algorithm. The reason for that is partly that the two methods would complement each other well with different but necessary information. As the investigation focuses on the context, the use of unigrams would not be relevant, since it is only based on the current word. On the other hand, having the same four (or more) words in a row is very rare, therefore we decided to not use n-grams that are bigger than three, as the amount of data would not be enough to make informed decisions.
+We believe that a combination of bigrams and trigrams will make a good balance in the algorithm and that it will suffice to reach the goal (covered in 4). The reason for that is partly that the two methods would complement each other well with different but necessary information. As the investigation focuses on the context, the use of unigrams would not be relevant, since it is only based on the current word. On the other hand, having the same four (or more) words in a row is very rare, therefore we decided to not use n-grams that are bigger than three, as the amount of data would not be enough to make informed decisions.
 
 \subsection{Contribution}
 \label{sec:contribution}
-The purpose of our program is to reduce the number of incorrect uses of  words in writing. False friends and pseudo-anglicism are strongly related to the problem of expressing ourselves improperly in a language other than our mother tongue. In these cases a spell checker would not react since the words are correctly spelled, but used in the wrong context. Since 750 million people speak English as a foreign language and many of the languages, that these people has as their native language, have false friends with English. This could help these people to better understand and to learn the English language. 
+The purpose of our program is to reduce the number of incorrect uses of  words in writing. False friends and pseudo-anglicism are strongly related to the problem of expressing ourselves improperly in a language other than our mother tongue. In these cases a spell checker would not react since the words are correctly spelled, but used in the wrong context. Since millions of people speak English as a foreign language and many of the languages, that these people has as their first language, have false friends with English. This could help these people to better understand and to learn the English language. 
 
 Previous work has been done in this field for several different languages, but in our work we will focus on the Swedish languages and the difficulties people with Swedish as their first language have with English.
 
@@ -86,8 +86,8 @@ In the paper Automatic Identification of Cognates and False Friends in French an
 
 But sometimes the use of words that are similar is a bad idea. False friends are pairs of words that look alike, but mean completely different things. One example of this is french main, which means hand, and main in English. There are also some words that in some contexts have the same meaning but in others have a completely different one \cite{frunzaInkpen2009identification}.
 
-\subsection{Pseudo-anglicism}
-Pseudo-anglicism is words, that a language has borrowed from the English language, that do not make sense in English. These kinds of words are related to false friends but is not entirely the same. One example in German is body-bag which is a kind of backpack with only one strap. Another example is the Swedish word backslick, which in English really is called slick-back hairdo. Sometimes the words do not mean anything at all in English but sometimes the words have a completely different meaning \cite{pseudoanglicism}.
+\subsection{Pseudo-anglicisms}
+Pseudo-anglicisms are words, that a language has borrowed from the English language, that do not make sense in English. These kinds of words are related to false friends but is not entirely the same. One example in German is body-bag which is a kind of backpack with only one strap. Another example is the Swedish word backslick, which in English really is called slick-back hairdo. Sometimes the words do not mean anything at all in English but sometimes the words have a completely different meaning \cite{pseudoanglicism}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -95,18 +95,18 @@ Pseudo-anglicism is words, that a language has borrowed from the English languag
 \label{sec:relatedwork}
 The paper Techniques for automatically correcting words in text by Karen Kukich brings up three different types of error detection and correction. The type most interesting to us was context dependent word-correction. Kukich discusses previous work and different approaches for the context dependent word-correction \cite{Kukich1992Tecniques}. However, in this report the focus is not on word-correction but on word-detection.
 
-Several research papers have discussed how to capture the context of a sentence without having to analyze the whole sentence. In the article A Swedish Grammar for Word Prediction, written by Ebba Gustavii and Eva Pettersson, grammar rules was implemented by using the FASTY language modeling to predict the next word with the use of the n-gram modeling \cite{gustavii2003a}. The article's aim was to cover contexts where statistical models gives irrelevant suggestions. The hypothesis of the article was that the FASTY would achieve a good and intelligence choice of words. The particularly useful part of this article was the method for measuring and evaluating the results.
+Several research papers have discussed how to capture the context of a sentence without having to analyze the whole sentence. In the article A Swedish Grammar for Word Prediction, written by Ebba Gustavii and Eva Pettersson, grammar rules was implemented by using the FASTY language modeling to predict the next word with the use of the n-gram modeling \cite{gustavii2003a}. The article's aim was to cover contexts where statistical models gives irrelevant suggestions. The hypothesis of the article was that the FASTY would achieve a good and intelligent choice of words. The particularly useful part of this article was the method for measuring and evaluating the results.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{My method}
+\section{Method}
 \label{sec:method}
 The project is divided into two parts: implementation and analyzing. 
-The implementation is based on the previously mentioned n-gram model where the probability of a word being correct is based on the probability of it being followed by the n-1 previous words. Based on the hypothesis, a combination of bigrams and trigrams is used to be able to find plausible incorrect words. The text processing library Natural Language Toolkit (NLTK) in Python is conveniently used to save time for already solved problems \cite{loper2002nltk}. 
+The implementation is based on the previously mentioned n-gram model where the probability of a word being correct is based on the probability of it being followed by the n-1 previous words. Based on the hypothesis, a combination of bigrams and trigrams is used to be able to find possibly incorrect words. The text processing library Natural Language Toolkit (NLTK) in Python is conveniently used to save time for already solved problems \cite{loper2002nltk}. 
 
 As input, the program takes a text or sentence and as output it returns the words that is probable to be incorrect. The decision if a word should be output or not is made by a threshold of the probability of the n-grams ending with this word. The threshold is tuned during the work to find the best possible result. 
 
-For the analysis and evaluation of the algorithm, we used a quantitative method, were we composed $x$ sentences containing incorrect words or expressions. For the creation of these sentences we used a database with common errors, that Swedes usually makes when writing in English, combined with example sentences from a Swedish textbook in the English language. As a complement to this, English texts without errors is also used.
+For the analysis and evaluation of the algorithm, we used a quantitative method, were we composed $x$ sentences containing incorrect words or expressions. For the creation of these sentences we used a database with common errors, that Swedes usually makes when writing in English, combined with example sentences from a Swedish textbook in the English language. As a complement to this, English texts without errors were also used.
 
 For measuring the results we calculated the quota between the correctly detected defects and all defects together with incorrectly detected defects. This equation is called the Hit Rate \cite{wikipedia2014hitrate, ghayoomi2005word}.
 
@@ -138,7 +138,7 @@ TODO
 \subsection{Experimental setup}
 TODO
 
-\subsection{Experiment ...}
+\subsection{Experiment}
 TODO
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
