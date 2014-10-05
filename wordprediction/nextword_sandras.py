@@ -12,7 +12,7 @@ def get_most_common(word_list, search_word):
     #grams = [b.lower() for (a, b) in nltk.bigrams(word_list) if a == 'och']
     for gram in grams:
         ordered_bigrams[gram] += 1
-    return ordered_bigrams
+    return ordered_bigrams.most_common(3)
 
 # def get_ngrams(text, n):
 #     punct = set(string.punctuation)
@@ -35,7 +35,8 @@ def main():
         if len(ordered_bigrams) == 0:
             print ('No matching words')
         else:
-            for (word, nr) in ordered_bigrams.most_common(3):
+            #print (ordered_bigrams)
+            for (word, nr) in ordered_bigrams:
                 print (word + ' (' + str(nr) + ')')
         print ('\nType e to end the program')
 
