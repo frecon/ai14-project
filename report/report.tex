@@ -47,7 +47,7 @@ The need to be able to write accurate English is growing as the market is becomi
 For example if a Swede wants to ask a friend if he has a dinner jacket, the person might say \emph{Do you have a smoking?} believing that the word smoking (Swedish word for dinner jacket) has the same meaning in English. The native English speaker could interpret that what the Swede really intended to say was \emph{Do you have a cigarette?}  
 
 A normal spell checker would not be able to find an error like this, but an algorithm that looks at the probability of the word order might. The standard way to implement this type of word prediction is by using the so called n-gram model. The n-gram model is based on 
-statistical language modeling and uses the $n-1$ previous words in a sentence to predict the next word. Examples of n-grams is unigram $n=1$, bigrams $n=2$ and trigrams $n=3$. This is covered in more detail later on in the report \cite{gallagher2004natural}.
+statistical language modeling and uses the $n-1$ previous words in a sentence to predict the next word. Examples of n-grams is unigram $n=1$, bigrams $n=2$ and trigrams $n=3$. This is covered in more detail later on in the report section \ref{sec:ngram} \cite{gallagher2004natural}.
 
 We anticipate that a tool that could locate this kind of mistake could be of great help. As far as we know there is no tool like this specialized in Swedes writing in English. The tool should work as a context-dependent word detection.
 
@@ -56,9 +56,9 @@ We anticipate that a tool that could locate this kind of mistake could be of gre
 The aim for this project is to investigate if it is possible to implement a system that will find words that are out of context by using n-grams. We will implement a program and analyze if it can identify this kind of words in different sentences. The application area for this system will be for people with Swedish as a first language and English as a foreign language, who wants to write in English without making unnecessary mistakes.
 
 \subsection{Hypothesis}
-Our hypothesis is that it is enough to use bigrams and trigrams and a probability threshold to detect words that are out of context in a given text. However, the results will be affected by the quality of the corpus (covered in section 2.1) and we believe that a large and well chosen corpus is vital for the result of this study.
+Our hypothesis is that it is enough to use bigrams and trigrams and a probability threshold to detect words that are out of context in a given text. However, the results will be affected by the quality of the corpus (covered in \ref{sec:ngram}) and we believe that a large and well chosen corpus is vital for the result of this study.
 
-We believe that a combination of bigrams and trigrams will make a good balance in the algorithm and that it will suffice to reach the goal (covered in 4). The reason for that is partly that the two methods would complement each other well with different but necessary information. As the investigation focuses on the context, the use of unigrams would not be relevant, since it is only based on the current word. On the other hand, having the same four (or more) words in a row is very rare, therefore we decided to not use n-grams that are bigger than three, as the amount of data would not be enough to make informed decisions.
+We believe that a combination of bigrams and trigrams will make a good balance in the algorithm and that it will suffice to reach the goal (covered in \ref{sec:method}). The reason for that is partly that the two methods would complement each other well with different but necessary information. As the investigation focuses on the context, the use of unigrams would not be relevant, since it is only based on the current word. On the other hand, having the same four (or more) words in a row is very rare, therefore we decided to not use n-grams that are bigger than three, as the amount of data would not be enough to make informed decisions.
 
 \subsection{Contribution}
 \label{sec:contribution}
@@ -72,6 +72,7 @@ TODO
 
 \section{Language Modeling}
 \subsection{N-gram modeling}
+\label{sec:ngram}
 In general a statistical language modeling is based on n-gram language modeling which tries to predict the next word in a sentence based on the $n-1$previous words in the sentence \cite{gallagher2004natural}.  When choosing two words to compute the probability that a given word is the next word is called bigram. If we for example have the sentence \emph{I painted the house in the color} and uses bigram to guess the next word in the sentence we would compute $\Pr(predictive word \mid color)$. Although it makes more sense to assume, by using the whole sentence, that it would be easier for a human to guess the next word. This because the guess then could also be based on the context of the sentence. However, the bigram does not take as much computer power unlike if one wants to compute the whole sentence. It also takes less time to compute a bigram in comparison to compute a whole sentence \cite{gallagher2004natural}.
 
 The information that is needed to compute an n-gram is how often a word occurs in general and how often a word occurs with others specific words. The n-gram model is using the Markov assumption, which is the assumption that the future behavior of a dynamical system only depends on its recent history \cite{mooneynatural}. In this case the history of the $n-1$ previous words. 
