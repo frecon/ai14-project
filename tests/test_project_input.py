@@ -30,7 +30,7 @@ class TestGrams(unittest.TestCase):
         text = "I like AI. It's the best course ever."
         actual = get_bigrams(text)
         expected = [
-            ('i', 'like'),
+            ('I', 'like'),
             ('like', 'ai'),
             ('ai', '.'),
             ('.', 'it'),
