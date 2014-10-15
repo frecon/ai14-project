@@ -20,6 +20,7 @@ def bi_grams(text):
 
 
 def top_ten_bigrams(words):
+    """Returns the bigrams with the most probability from the given words."""
     bigram_measures = BigramAssocMeasures()
     finder = BigramCollocationFinder.from_words(words)
     finder.apply_freq_filter(3)

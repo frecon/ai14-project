@@ -3,7 +3,7 @@ import nltk
 
 from wordprediction.nextword_sandras import (
     get_most_common
-}
+)
 
 
 class TestGrams(unittest.TestCase):
