@@ -19,11 +19,7 @@ def get_trigrams(words):
 
 def get_bigrams(words):
     """From a list of words, bigrams are constructed and returned"""
-    lowerWords = []
-    for word in words:
-        lowerWords.append(word.lower())
-    ngrams = bigrams(lowerWords)
-    return ngrams
+    return bigrams(words)
 
 
 def get_words(filename):
