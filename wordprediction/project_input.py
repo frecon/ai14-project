@@ -27,7 +27,7 @@ def get_trigrams(words):
 
 def get_bigrams(words):
     """From a list of words, bigrams are constructed and returned"""
-    return bigrams(words)
+    return bigrams([word.lower() for word in words])
 
 def get_words(filename):
     """Creates a corpus from a text file"""
