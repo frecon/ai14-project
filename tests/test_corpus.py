@@ -4,6 +4,7 @@ import unittest
 from wordprediction.corpus import (
     generate_words,
     Corpus,
+    get_bigrams,
 )
 
 
@@ -12,12 +13,7 @@ class TestCorpus(unittest.TestCase):
         current_directory = os.path.dirname(__file__)
         self.corpus_one = os.path.join(current_directory, 'corpus', 'one.txt')
         self.corpus_two = os.path.join(current_directory, 'corpus', 'two.txt')
-
-    def test_with_brown(self):
-        corpus = Corpus("brown.txt")
-        bigram =  (b'There', b'followed')
-        actual = corpus.bigram_score(bigram)
-        self.assertEqual(0.14285714285714285, actual)
+        self.corpus = Corpus()
 
     def test_bigram_score(self):
         bigram = (b'I', b'like')
@@ -95,3 +91,36 @@ class TestCorpus(unittest.TestCase):
         actual = generate_words(files)
         self.assertEqual(expected, list(actual))
 
+    def test_get_bigrams(self):
+        current_directory = os.path.dirname(__file__)
+        bigram_source = os.path.join(
+            current_directory,
+            'corpus',
+            'count_2w_subset.txt')
+        bigrams = get_bigrams(bigram_source)
+        expected = [
+            ('crib', 'bedding'),
+            ('cried', 'and'),
+            ('cried', 'for'),
+        ]
+        self.assertEqual(expected, bigrams)
+
+    def test_bigram_exits(self):
+        bigram = ('crib', 'bedding')
+        self.assertEqual(True, self.corpus.bigram_exists(bigram))
+
+    def test_bigram_exits_nonexisting_bigram(self):
+        bigram = ('maja', 'frej')
+        self.assertEqual(False, self.corpus.bigram_exists(bigram))
+
+    def test_bigram_exists_multiple_corpus(self):
+        corpus = Corpus(self.corpus_one)
+        bigram = (b'like', b'ai')
+        actual = corpus.bigram_exists(bigram)
+        self.assertEqual(True, actual)
+
+    def test_bigram_exists_multiple_corpus_hela_skiten(self):
+        #  Daniel/np personally/rb led/vbd the/at fight/nn for/in the/at measure/
+        bigram = (b'personally', b'led')
+        actual = self.corpus.bigram_exists(bigram)
+        self.assertEqual(True, actual)
