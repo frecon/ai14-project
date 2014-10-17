@@ -13,6 +13,12 @@ class TestCorpus(unittest.TestCase):
         self.corpus_one = os.path.join(current_directory, 'corpus', 'one.txt')
         self.corpus_two = os.path.join(current_directory, 'corpus', 'two.txt')
 
+    def test_with_brown(self):
+        corpus = Corpus("brown.txt")
+        bigram =  (b'There', b'followed')
+        actual = corpus.bigram_score(bigram)
+        self.assertEqual(0.14285714285714285, actual)
+
     def test_bigram_score(self):
         bigram = (b'I', b'like')
         corpus = Corpus(self.corpus_one)
