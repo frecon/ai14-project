@@ -1,0 +1,397 @@
+Searching for defects from correct sentences.
+Do you have a tuxedo
+Found 4 bigrams [('do', 'you'), ('you', 'have'), ('have', 'a'), ('a', 'tuxedo')]
+Found 1 defects [('a', 'tuxedo')]
+correct 3
+not detected 0
+incorrect 1
+z = 0.75
+
+It broke
+Found 1 bigrams [('it', 'broke')]
+Found 0 defects []
+correct 1
+not detected 0
+incorrect 0
+z = 1
+
+Do not overdo it
+Found 3 bigrams [('do', 'not'), ('not', 'overdo'), ('overdo', 'it')]
+Found 2 defects [('not', 'overdo'), ('overdo', 'it')]
+correct 1
+not detected 0
+incorrect 2
+z = 0.3333333333333333333333333333
+
+Have you changed outfit
+Found 3 bigrams [('have', 'you'), ('you', 'changed'), ('changed', 'outfit')]
+Found 1 defects [('changed', 'outfit')]
+correct 2
+not detected 0
+incorrect 1
+z = 0.6666666666666666666666666667
+
+The door was closed with a bang
+Found 6 bigrams [('the', 'door'), ('door', 'was'), ('was', 'closed'), ('closed', 'with'), ('with', 'a'), ('a', 'bang')]
+Found 0 defects []
+correct 6
+not detected 0
+incorrect 0
+z = 1
+
+Can you shut the window
+Found 4 bigrams [('can', 'you'), ('you', 'shut'), ('shut', 'the'), ('the', 'window')]
+Found 0 defects []
+correct 4
+not detected 0
+incorrect 0
+z = 1
+
+Do you want to iron your clothes
+Found 6 bigrams [('do', 'you'), ('you', 'want'), ('want', 'to'), ('to', 'iron'), ('iron', 'your'), ('your', 'clothes')]
+Found 1 defects [('iron', 'your')]
+correct 5
+not detected 0
+incorrect 1
+z = 0.8333333333333333333333333333
+
+I like to eat berries
+Found 4 bigrams [('i', 'like'), ('like', 'to'), ('to', 'eat'), ('eat', 'berries')]
+Found 1 defects [('eat', 'berries')]
+correct 3
+not detected 0
+incorrect 1
+z = 0.75
+
+I think I will skip the tea this morning
+Found 8 bigrams [('i', 'think'), ('think', 'i'), ('i', 'will'), ('will', 'skip'), ('skip', 'the'), ('the', 'tea'), ('tea', 'this'), ('this', 'morning')]
+Found 2 defects [('will', 'skip'), ('tea', 'this')]
+correct 6
+not detected 0
+incorrect 2
+z = 0.75
+
+We had a problem flushing the toilet
+Found 6 bigrams [('we', 'had'), ('had', 'a'), ('a', 'problem'), ('problem', 'flushing'), ('flushing', 'the'), ('the', 'toilet')]
+Found 2 defects [('problem', 'flushing'), ('flushing', 'the')]
+correct 4
+not detected 0
+incorrect 2
+z = 0.6666666666666666666666666667
+
+It is probably rape fields
+Found 4 bigrams [('it', 'is'), ('is', 'probably'), ('probably', 'rape'), ('rape', 'fields')]
+Found 2 defects [('probably', 'rape'), ('rape', 'fields')]
+correct 2
+not detected 0
+incorrect 2
+z = 0.5
+
+I always have a fun time at parties
+Found 7 bigrams [('i', 'always'), ('always', 'have'), ('have', 'a'), ('a', 'fun'), ('fun', 'time'), ('time', 'at'), ('at', 'parties')]
+Found 0 defects []
+correct 7
+not detected 0
+incorrect 0
+z = 1
+
+Toilet is out of order
+Found 4 bigrams [('toilet', 'is'), ('is', 'out'), ('out', 'of'), ('of', 'order')]
+Found 1 defects [('toilet', 'is')]
+correct 3
+not detected 0
+incorrect 1
+z = 0.75
+
+When were you born
+Found 3 bigrams [('when', 'were'), ('were', 'you'), ('you', 'born')]
+Found 2 defects [('when', 'were'), ('you', 'born')]
+correct 1
+not detected 0
+incorrect 2
+z = 0.3333333333333333333333333333
+
+Sorry to hear about your diarrhea
+Found 5 bigrams [('sorry', 'to'), ('to', 'hear'), ('hear', 'about'), ('about', 'your'), ('your', 'diarrhea')]
+Found 1 defects [('your', 'diarrhea')]
+correct 4
+not detected 0
+incorrect 1
+z = 0.8
+
+I need to go the the toilet and have a pee
+Found 10 bigrams [('i', 'need'), ('need', 'to'), ('to', 'go'), ('go', 'the'), ('the', 'the'), ('the', 'toilet'), ('toilet', 'and'), ('and', 'have'), ('have', 'a'), ('a', 'pee')]
+Found 1 defects [('a', 'pee')]
+correct 9
+not detected 0
+incorrect 1
+z = 0.9
+
+Can you pass me the mashed potatoes
+Found 6 bigrams [('can', 'you'), ('you', 'pass'), ('pass', 'me'), ('me', 'the'), ('the', 'mashed'), ('mashed', 'potatoes')]
+Found 1 defects [('the', 'mashed')]
+correct 5
+not detected 0
+incorrect 1
+z = 0.8333333333333333333333333333
+
+This morning was very cold
+Found 4 bigrams [('this', 'morning'), ('morning', 'was'), ('was', 'very'), ('very', 'cold')]
+Found 0 defects []
+correct 4
+not detected 0
+incorrect 0
+z = 1
+
+She is a friend of mine
+Found 5 bigrams [('she', 'is'), ('is', 'a'), ('a', 'friend'), ('friend', 'of'), ('of', 'mine')]
+Found 0 defects []
+correct 5
+not detected 0
+incorrect 0
+z = 1
+
+Could I have some water because my friend is fainting
+Found 9 bigrams [('could', 'i'), ('i', 'have'), ('have', 'some'), ('some', 'water'), ('water', 'because'), ('because', 'my'), ('my', 'friend'), ('friend', 'is'), ('is', 'fainting')]
+Found 2 defects [('water', 'because'), ('is', 'fainting')]
+correct 7
+not detected 0
+incorrect 2
+z = 0.7777777777777777777777777778
+
+I need to borrow a pen from you
+Found 7 bigrams [('i', 'need'), ('need', 'to'), ('to', 'borrow'), ('borrow', 'a'), ('a', 'pen'), ('pen', 'from'), ('from', 'you')]
+Found 1 defects [('pen', 'from')]
+correct 6
+not detected 0
+incorrect 1
+z = 0.8571428571428571428571428571
+
+where are you
+Found 2 bigrams [('where', 'are'), ('are', 'you')]
+Found 0 defects []
+correct 2
+not detected 0
+incorrect 0
+z = 1
+
+He teaches children
+Found 2 bigrams [('he', 'teaches'), ('teaches', 'children')]
+Found 1 defects [('teaches', 'children')]
+correct 1
+not detected 0
+incorrect 1
+z = 0.5
+
+He checks passports at the airport
+Found 5 bigrams [('he', 'checks'), ('checks', 'passports'), ('passports', 'at'), ('at', 'the'), ('the', 'airport')]
+Found 3 defects [('he', 'checks'), ('checks', 'passports'), ('passports', 'at')]
+correct 2
+not detected 0
+incorrect 3
+z = 0.4
+
+We are going on holiday together
+Found 5 bigrams [('we', 'are'), ('are', 'going'), ('going', 'on'), ('on', 'holiday'), ('holiday', 'together')]
+Found 1 defects [('holiday', 'together')]
+correct 4
+not detected 0
+incorrect 1
+z = 0.8
+
+I am hung over
+Found 3 bigrams [('i', 'am'), ('am', 'hung'), ('hung', 'over')]
+Found 1 defects [('am', 'hung')]
+correct 2
+not detected 0
+incorrect 1
+z = 0.6666666666666666666666666667
+
+I like smorgasbords
+Found 2 bigrams [('i', 'like'), ('like', 'smorgasbords')]
+Found 1 defects [('like', 'smorgasbords')]
+correct 1
+not detected 0
+incorrect 1
+z = 0.5
+
+She is very strong
+Found 3 bigrams [('she', 'is'), ('is', 'very'), ('very', 'strong')]
+Found 0 defects []
+correct 3
+not detected 0
+incorrect 0
+z = 1
+
+I want to play pinball
+Found 4 bigrams [('i', 'want'), ('want', 'to'), ('to', 'play'), ('play', 'pinball')]
+Found 1 defects [('play', 'pinball')]
+correct 3
+not detected 0
+incorrect 1
+z = 0.75
+
+Have you read any good paperbacks lately
+Found 6 bigrams [('have', 'you'), ('you', 'read'), ('read', 'any'), ('any', 'good'), ('good', 'paperbacks'), ('paperbacks', 'lately')]
+Found 2 defects [('good', 'paperbacks'), ('paperbacks', 'lately')]
+correct 4
+not detected 0
+incorrect 2
+z = 0.6666666666666666666666666667
+
+Can I have a glass of wine
+Found 6 bigrams [('can', 'i'), ('i', 'have'), ('have', 'a'), ('a', 'glass'), ('glass', 'of'), ('of', 'wine')]
+Found 0 defects []
+correct 6
+not detected 0
+incorrect 0
+z = 1
+
+Do you want to play basketball
+Found 5 bigrams [('do', 'you'), ('you', 'want'), ('want', 'to'), ('to', 'play'), ('play', 'basketball')]
+Found 0 defects []
+correct 5
+not detected 0
+incorrect 0
+z = 1
+
+I have my hair in a slickback
+Found 6 bigrams [('i', 'have'), ('have', 'my'), ('my', 'hair'), ('hair', 'in'), ('in', 'a'), ('a', 'slickback')]
+Found 1 defects [('a', 'slickback')]
+correct 5
+not detected 0
+incorrect 1
+z = 0.8333333333333333333333333333
+
+Can I have the recipe for this soup
+Found 7 bigrams [('can', 'i'), ('i', 'have'), ('have', 'the'), ('the', 'recipe'), ('recipe', 'for'), ('for', 'this'), ('this', 'soup')]
+Found 1 defects [('this', 'soup')]
+correct 6
+not detected 0
+incorrect 1
+z = 0.8571428571428571428571428571
+
+I work as a photographer
+Found 4 bigrams [('i', 'work'), ('work', 'as'), ('as', 'a'), ('a', 'photographer')]
+Found 0 defects []
+correct 4
+not detected 0
+incorrect 0
+z = 1
+
+I am investigating this case
+Found 4 bigrams [('i', 'am'), ('am', 'investigating'), ('investigating', 'this'), ('this', 'case')]
+Found 2 defects [('am', 'investigating'), ('investigating', 'this')]
+correct 2
+not detected 0
+incorrect 2
+z = 0.5
+
+What is the interest on your bank loan
+Found 7 bigrams [('what', 'is'), ('is', 'the'), ('the', 'interest'), ('interest', 'on'), ('on', 'your'), ('your', 'bank'), ('bank', 'loan')]
+Found 0 defects []
+correct 7
+not detected 0
+incorrect 0
+z = 1
+
+The data was treated in the following way
+Found 7 bigrams [('the', 'data'), ('data', 'was'), ('was', 'treated'), ('treated', 'in'), ('in', 'the'), ('the', 'following'), ('following', 'way')]
+Found 0 defects []
+correct 7
+not detected 0
+incorrect 0
+z = 1
+
+My phone is vibrating
+Found 3 bigrams [('my', 'phone'), ('phone', 'is'), ('is', 'vibrating')]
+Found 1 defects [('is', 'vibrating')]
+correct 2
+not detected 0
+incorrect 1
+z = 0.6666666666666666666666666667
+
+I like to eat ice cream
+Found 5 bigrams [('i', 'like'), ('like', 'to'), ('to', 'eat'), ('eat', 'ice'), ('ice', 'cream')]
+Found 1 defects [('eat', 'ice')]
+correct 4
+not detected 0
+incorrect 1
+z = 0.8
+
+Put the cups on the tray
+Found 5 bigrams [('put', 'the'), ('the', 'cups'), ('cups', 'on'), ('on', 'the'), ('the', 'tray')]
+Found 1 defects [('cups', 'on')]
+correct 4
+not detected 0
+incorrect 1
+z = 0.8
+
+It is cold in Iceland
+Found 4 bigrams [('it', 'is'), ('is', 'cold'), ('cold', 'in'), ('in', 'iceland')]
+Found 1 defects [('in', 'iceland')]
+correct 3
+not detected 0
+incorrect 1
+z = 0.75
+
+These are my children
+Found 3 bigrams [('these', 'are'), ('are', 'my'), ('my', 'children')]
+Found 0 defects []
+correct 3
+not detected 0
+incorrect 0
+z = 1
+
+I am going to the office on the fifth floor
+Found 9 bigrams [('i', 'am'), ('am', 'going'), ('going', 'to'), ('to', 'the'), ('the', 'office'), ('office', 'on'), ('on', 'the'), ('the', 'fifth'), ('fifth', 'floor')]
+Found 0 defects []
+correct 9
+not detected 0
+incorrect 0
+z = 1
+
+Can you write a sentence?
+Found 4 bigrams [('can', 'you'), ('you', 'write'), ('write', 'a'), ('a', 'sentence?')]
+Found 1 defects [('a', 'sentence?')]
+correct 3
+not detected 0
+incorrect 1
+z = 0.75
+
+May I have the pleasure of this dance?
+Found 7 bigrams [('may', 'i'), ('i', 'have'), ('have', 'the'), ('the', 'pleasure'), ('pleasure', 'of'), ('of', 'this'), ('this', 'dance?')]
+Found 1 defects [('this', 'dance?')]
+correct 6
+not detected 0
+incorrect 1
+z = 0.8571428571428571428571428571
+
+Would you like to go to the cinema
+Found 7 bigrams [('would', 'you'), ('you', 'like'), ('like', 'to'), ('to', 'go'), ('go', 'to'), ('to', 'the'), ('the', 'cinema')]
+Found 0 defects []
+correct 7
+not detected 0
+incorrect 0
+z = 1
+
+Use the water hose to water the flowers
+Found 7 bigrams [('use', 'the'), ('the', 'water'), ('water', 'hose'), ('hose', 'to'), ('to', 'water'), ('water', 'the'), ('the', 'flowers')]
+Found 2 defects [('water', 'hose'), ('hose', 'to')]
+correct 5
+not detected 0
+incorrect 2
+z = 0.7142857142857142857142857143
+
+It is going to be good weather tomorrow
+Found 7 bigrams [('it', 'is'), ('is', 'going'), ('going', 'to'), ('to', 'be'), ('be', 'good'), ('good', 'weather'), ('weather', 'tomorrow')]
+Found 1 defects [('weather', 'tomorrow')]
+correct 6
+not detected 0
+incorrect 1
+z = 0.8571428571428571428571428571
+
+correct 204
+not detected 0
+incorrect 44
+tot z = 0.8225806451612903225806451613

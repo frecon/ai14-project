@@ -12,20 +12,27 @@ def get_defects_in_correct_sentences():
     usertext = os.path.join(current_directory, directory, filename)
     corpus = Corpus()
     with open(usertext, 'r') as f:
+        total_correct = 0
+        total_incorrect = 0
         for line in f:
             print(line.strip())
             words = line.split()
-            print('Found {0} bigrams {1}'.format(
-                len(list(get_bigrams(words))),
-                list(get_bigrams(words)))
-            )
+            bigrams = list(get_bigrams(words))
+            nr_of_bigrams = len(bigrams)
+            print('Found {0} bigrams {1}'.format(nr_of_bigrams, bigrams))
             bigrams = get_bigrams(words)
             defects = []
             for bigram in bigrams:
                 if not corpus.bigram_exists(bigram):
                     defects.append(bigram)
-            print('Found {0} defects {1}'.format(len(defects), defects))
+            incorrect = len(defects)
+            correct = nr_of_bigrams - incorrect
+            total_incorrect += incorrect
+            total_correct += correct
+            print('Found {0} defects {1}'.format(incorrect, defects))
+            print('z = {0}'.format(get_z(correct, 0, incorrect)))
             print('')
+        print('tot z = {0}'.format(get_z(total_correct, 0, total_incorrect)))
 
 
 def get_defects_in_false_friends():
@@ -90,6 +97,8 @@ def get_z(correct, not_detected, incorrect):
     print('correct {0}'.format(correct))
     print('not detected {0}'.format(not_detected))
     print('incorrect {0}'.format(incorrect))
+    if (correct + not_detected + incorrect) == 0:
+        return 0
     return Decimal(correct) / (Decimal(correct) + Decimal(not_detected) + Decimal(incorrect))
 
 
@@ -107,7 +116,7 @@ def get_defects(usertext_filename, corpuses=None):
 
 
 if __name__ == '__main__':
-    print('Searching for defects from false friends.')
-    get_defects_in_false_friends()
-    #  print('Searching for defects from correct sentences.')
-    #  get_defects_in_correct_sentences()
+    # print('Searching for defects from false friends.')
+    # get_defects_in_false_friends()
+    print('Searching for defects from correct sentences.')
+    get_defects_in_correct_sentences()
