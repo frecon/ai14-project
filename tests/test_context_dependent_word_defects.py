@@ -4,7 +4,7 @@ import os
 from wordprediction.context_dependent_word_defects import (
     get_defects,
     get_defects_in_correct_sentences,
-    get_defects_in_false_friends,
+    get_result_for_sentences,
 )
 from wordprediction.corpus import generate_words
 from wordprediction.project_input import get_bigrams
