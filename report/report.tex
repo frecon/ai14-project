@@ -132,9 +132,8 @@ If $z$ equals one, the algorithm correctly found all defects with no incorrect m
 
 For the experiment we used both incorrect sentences and the corresponding correct version of each sentence. The sentences were constructed as simple sentences with one incorrect word in each one. The incorrect words were false friends, real-word errors or grammatical errors. In the correct sentences, these incorrect words, were replaced with the word that made sense in the sentence. 
 
-For the hit rate calculation of the incorrect sentences, the true positives are the correctly detected defects, the negative positives are the defects that are not detected and false positives are the incorrect defects detected words \ref{alg:incorrect_sentence}. In a similar way, the true positives, for the correct sentences, are the total number of bigrams except the found defects, zero false negatives and false positives the number of found defects \ref{alg:correct_sentence}.
+For the hit rate calculation of the incorrect sentences, the true positives are the correctly detected defects, the negative positives are the defects that are not detected and false positives are the incorrect defects detected words in Algorithm 1. In a similar way, the true positives, for the correct sentences, are the total number of bigrams except the found defects, zero false negatives and false positives the number of found defects Algorithm 2.
  
-\label{alg:incorrect_sentence}
 \begin{figure}[h]
 \begin{algorithm}[H]
     \DontPrintSemicolon
@@ -166,14 +165,13 @@ For the hit rate calculation of the incorrect sentences, the true positives are 
 \end{algorithm}
 \end{figure}
 
-\label{alg:correct_sentence}
 \begin{figure}[h]
 \begin{algorithm}[H]
     \DontPrintSemicolon
     \SetKwFunction{KwFn}{hitratecorrect}
     \SetAlgoLined
     \renewcommand\bottomfraction{0.85}
-    \KwData{sentence = text to measure containing no errors
+    \KwData{sentence = text to measure containing no errors,
             	  library = set of bigrams constructed from corpus}
     \KwResult{Hit rate for sentence $n$}
     \SetKwFunction{hitratecorrect}{hitrate\_correct\_sentence}
