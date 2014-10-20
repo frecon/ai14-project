@@ -7,6 +7,8 @@
 \usepackage{amsmath}
 \usepackage{pdflscape}
 \usepackage{longtable}
+\usepackage[noend, linesnumbered]{algorithm2e}
+
 
 \graphicspath{{pictures/}}
 
@@ -104,14 +106,19 @@ Several research papers have discussed how to capture the context of a sentence 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Method}
 \label{sec:method}
-The project is divided into two parts: implementation and analyzing. 
-The implementation is based on the previously mentioned n-gram model where the probability of a word being correct is based on the probability of it being followed by the n-1 previous words. Based on the hypothesis, a combination of bigrams and trigrams is used to be able to find possibly incorrect words. The text processing library Natural Language Toolkit (NLTK) in Python is conveniently used to save time for already solved problems \cite{loper2002nltk}. 
+The project is divided into two parts: implementation and analyzing.
 
-As input, the program takes a text or sentence and as output it returns the words that is probable to be incorrect. The decision if a word should be output or not is made by a threshold of the probability of the n-grams ending with this word. The threshold is tuned during the work to find the best possible result. 
+\subsection{Implementation}
+\label{ref:implementation}
+The implementation is based on the previously mentioned n-gram model. Based on the hypothesis, bigrams was used to be able to find plausible incorrect words. The text processing library Natural Language Toolkit (NLTK) in Python is conveniently used to save time for already solved problems. It is a platform for language modeling and it provides many corpora, lexical resources and provides common NLP functions\cite{nltk}. 
 
-For the analysis and evaluation of the algorithm, we used a quantitative method, were we composed $x$ sentences containing incorrect words or expressions. For the creation of these sentences we used a database with common errors, that Swedes usually makes when writing in English, combined with example sentences from a Swedish textbook in the English language. As a complement to this, English texts without errors were also used.
+To create a good library of bigrams  two corpora and a list of most frequently bigrams were used.  The Brown corpus contains 1,15 million words which is gathered from works published in the United States in 1964\cite{francis64brown}. The web text corpus used contains 200 000 words text with less formal language with content extracted from discussions, movie scripts, wine reviews etc. \cite{nltkWebtext}. The data set was further improved by using the 286 000 most frequently used bigrams from websites collected by Google in \emph{Google Web Trillion Word Corpus} \cite{286}.  This resulted in a total set of bigrams of 627 353. 
 
-For measuring the results we calculated the quota between the correctly detected defects and all defects together with incorrectly detected defects. This equation is called the Hit Rate \cite{wikipedia2014hitrate, ghayoomi2005word}.
+\subsection{Analyzing}
+\label{ref:analyzing}
+A bigram was considered to be proper English if it was included in the constructed bigram library, and incorrect if it was not. A more advanced statistical method could not be used since it would require a larger corpus. 
+
+For measuring the results we calculated the quota between the correctly detected defects and all defects together with incorrectly detected defects. This equation is called \emph{hit rate} \cite{ghayoomi2005word}.
 
 $$z = \frac{\sum correct}{\sum correct + \sum not\_detected + \sum incorrect}$$
 \begin{description}
@@ -123,14 +130,67 @@ $$z = \frac{\sum correct}{\sum correct + \sum not\_detected + \sum incorrect}$$
    		incorrect defects detected
 \end{description}
 
-If z equals one, the algorithm correctly found all defects with no incorrect matches and if z is zero, it did not found any of the defects.
+If $z$ equals one, the algorithm correctly found all defects with no incorrect matches and if z is zero, it did not found any of the defects.
 
-The different approaches described earlier is considered useful if $z \geq 0.70$ for all measurements. If $z \geq 0.90$ the result is successful and on par with similar research \cite{frunza2006automatic, frunzaInkpen2009identification}. Tuning each algorithm is done by running it multiple times, adjusting the threshold each time until the goal of z is reached.
+For the experiment we used both incorrect sentences and the corresponding correct version of each sentence. The sentences were constructed as simple sentences with one incorrect word in each one. The incorrect words were false friends, real-word errors or grammatical errors. In the correct sentences, these incorrect words, were replaced with the word that made sense in the sentence. 
 
+For the hit rate calculation of the incorrect sentences, the true positives are the correctly detected defects, the negative positives are the defects that are not detected and false positives are the incorrect defects detected words \ref{alg:incorrect_sentence}. In a similar way, the true positives, for the correct sentences, are the total number of bigrams except the found defects, zero false negatives and false positives the number of found defects \ref{alg:correct_sentence}.
+ 
+\label{alg:incorrect_sentence}
+\begin{figure}[h]
+\begin{algorithm}[H]
+    \DontPrintSemicolon
+    \SetKwFunction{KwFn}{hitrateincorrect}
+    \SetAlgoLined
+    \renewcommand\bottomfraction{0.85}
+    \KwData{sentence = text to measure containing exactly one wrong word,
+				  wrong\_word = word in sentence that does not make sense,
+            	  library = set of bigrams constructed from corpus}
+    \KwResult{Hit rate for sentence $n$}
+    \SetKwFunction{hitrateincorrect}{hitrate\_incorrect\_sentence}
+    \SetKwProg{myhitrateincorrect}{function}{}{}
+    \myhitrateincorrect{\hitrateincorrect{sentence, wrong\_word, library}}{
+		$bigrams \leftarrow$ construct\_bigrams(sentence)\;
+		$correct\_defects \leftarrow$ bigrams containing wrong\_word\;		
+		$found\_defects \leftarrow$ bigrams not in library\;
+		$incorrect \leftarrow$ count(found\_defects not in correct\_defects)\;
+		\If{any correct\_defects in found\_defects}{
+			$correct \leftarrow 1$\;
+			$not\_detected \leftarrow 0$\;
+        }
+        \Else{
+			$correct \leftarrow 0$\;
+			$not\_detected \leftarrow 1$\;
+        }				
+		\Return{correct / (correct + not\_detected + incorrect)}
+    }
+    \caption{Calculate hitrate for the sentences containing exactly one wrong word.}
+\end{algorithm}
+\end{figure}
 
-\subsection{Implementation}
-\label{sec:implementation}
-TODO
+\label{alg:correct_sentence}
+\begin{figure}[h]
+\begin{algorithm}[H]
+    \DontPrintSemicolon
+    \SetKwFunction{KwFn}{hitratecorrect}
+    \SetAlgoLined
+    \renewcommand\bottomfraction{0.85}
+    \KwData{sentence = text to measure containing no errors
+            	  library = set of bigrams constructed from corpus}
+    \KwResult{Hit rate for sentence $n$}
+    \SetKwFunction{hitratecorrect}{hitrate\_correct\_sentence}
+    \SetKwProg{myhitratecorrect}{function}{}{}
+    \myhitratecorrect{\hitratecorrect{sentence, library}}{
+		$bigrams \leftarrow$ construct\_bigrams(sentence)\;
+		$found\_defects \leftarrow$ bigrams not in library\;
+		$incorrect \leftarrow$ count(found\_defects)\;
+		$correct \leftarrow $ count(bigrams) - incorrect\;
+		$not\_detected \leftarrow 0$\;
+		\Return{correct / (correct + not\_detected + incorrect)}
+    }
+    \caption{Calculate hitrate for the sentences containing exactly one wrong word.}
+\end{algorithm}
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
