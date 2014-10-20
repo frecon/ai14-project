@@ -167,18 +167,12 @@ def get_defects_in_false_friends():
     filename = 'false_friends.txt'
     usertext = os.path.join(current_directory, directory, filename)
     corpus = Corpus()
-    print('#'.join(
+    print(' & '.join(
         ['Hitrate',
-         'Correct',
-         'Not detected',
-         'Incorrect',
          'Wrong word',
          'Sentence',
-         'Correct defects',
          'Nr defects found',
-         'Defects found',
-         'Nr bigrams',
-         'Bigrams']
+         'Defects found']
     ))
     with open(usertext, 'r') as f:
         total_correct = 0
@@ -189,7 +183,6 @@ def get_defects_in_false_friends():
                 continue
             false_word, sentence = line.split(';')
             words = sentence.split()
-            bigrams = list(get_bigrams(sentence.split()))
             found_defects = []
             for bigram in get_bigrams(words):
                 if not corpus.bigram_exists(bigram):
@@ -199,25 +192,16 @@ def get_defects_in_false_friends():
             total_correct += correct
             total_incorrect += incorrect
             total_not_detected += not_detected
-            print('{0}#{1}#{2}#{3}#{4}#{5}#{6}#{7}#{8}#{9}#{10}'.format(
+            print('{0} & {1} & {2} & {3} & {4} \\\\'.format(
                 str(get_z(correct, not_detected, incorrect).quantize(Decimal('.001'), rounding=ROUND_DOWN)).replace('.', ','),
-                correct,
-                not_detected,
-                incorrect,
                 false_word,
                 sentence.strip(),
-                correct_defects,
                 len(found_defects),
-                found_defects,
-                len(bigrams),
-                bigrams,
+                '' if len(found_defects) == 0 else found_defects,
             ))
-        print('{0}#{1}#{2}#{3}'.format(
+        print('{0}'.format(
             str(get_z(total_correct, total_not_detected, total_incorrect).quantize(Decimal('.001'), rounding=ROUND_DOWN)).replace('.', ','),
-            total_correct,
-            total_not_detected,
-            total_incorrect,
-            ))
+        ))
 
 
 if __name__ == '__main__':

@@ -1,0 +1,53 @@
+Hitrate & Wrong word & Sentence & Nr defects found & Defects found
+0,000 & smoking & Do you have a smoking & 0 &  \\
+1,000 & pied & It has pied & 1 & [('has', 'pied')] \\
+1,000 & overdrive & Do not overdrive & 1 & [('not', 'overdrive')] \\
+1,000 & about & Have you changed about & 1 & [('changed', 'about')] \\
+0,000 & smell & The door was closed with a smell & 0 &  \\
+0,000 & shoot & Can you shoot the window & 0 &  \\
+1,000 & strike & Do you want to strike your clothes & 1 & [('strike', 'your')] \\
+1,000 & bear & I like to eat bear & 1 & [('eat', 'bear')] \\
+0,000 & jump & I think I will jump over the tea this morning & 1 & [('tea', 'this')] \\
+1,000 & spoiling & We had a problem spoiling the toilet & 2 & [('problem', 'spoiling'), ('spoiling', 'the')] \\
+1,000 & rapefields & It is probably rapefields & 1 & [('probably', 'rapefields')] \\
+1,000 & funny & I always have a funny time at parties & 1 & [('funny', 'time')] \\
+1,000 & disabled & Disabled toilet & 1 & [('disabled', 'toilet')] \\
+0,000 & are & When are you born & 1 & [('you', 'born')] \\
+0,000 & diary & Sorry to hear about your diary. & 1 & [('your', 'diary.')] \\
+0,000 & kiss & I need to go the the toilet and kiss & 0 &  \\
+1,000 & moose & Can you pass me the potato moose & 1 & [('potato', 'moose')] \\
+1,000 & call & This morning was very call & 1 & [('very', 'call')] \\
+0,000 & to & She is a friend to me & 0 &  \\
+0,500 & swimming & Could I have some water because my friend is swimming & 2 & [('water', 'because'), ('is', 'swimming')] \\
+0,000 & lend & I need to lend a pen from you & 1 & [('pen', 'from')] \\
+1,000 & were & were are you & 1 & [('were', 'are')] \\
+1,000 & learns & He learns children & 1 & [('learns', 'children')] \\
+0,500 & controls & He controls passports at the airport & 3 & [('he', 'controls'), ('controls', 'passports'), ('passports', 'at')] \\
+1,000 & semester & We are going on semester together & 2 & [('on', 'semester'), ('semester', 'together')] \\
+1,000 & drunk & I am back drunk & 1 & [('back', 'drunk')] \\
+0,500 & table & I like sandwich table & 2 & [('like', 'sandwich'), ('sandwich', 'table')] \\
+1,000 & stark & She is very stark & 1 & [('very', 'stark')] \\
+1,000 & flipper & I want to play flipper & 1 & [('play', 'flipper')] \\
+1,000 & pockets & Have you read any good pockets lately & 2 & [('good', 'pockets'), ('pockets', 'lately')] \\
+1,000 & vine & Can I have a glass of vine & 1 & [('of', 'vine')] \\
+1,000 & basket & Do you want to play basket & 1 & [('play', 'basket')] \\
+1,000 & backslick & I have my hair in a backslick & 1 & [('a', 'backslick')] \\
+0,000 & receipt & Can I have the receipt for this soup & 1 & [('this', 'soup')] \\
+0,000 & photograph & I work as a photograph & 0 &  \\
+0,000 & fall & I am investigating this fall & 2 & [('am', 'investigating'), ('investigating', 'this')] \\
+0,000 & rent & What is the rent on your bank loan & 0 &  \\
+1,000 & vibrant & My phone is vibrant & 1 & [('is', 'vibrant')] \\
+1,000 & glass & I like to eat glass & 1 & [('eat', 'glass')] \\
+0,000 & brick & Put the cups on the brick & 1 & [('cups', 'on')] \\
+1,000 & island & It is cold in island & 1 & [('in', 'island')] \\
+1,000 & barns & These are my barns & 1 & [('my', 'barns')] \\
+1,000 & expedition & I am going to the expedition on the fifth floor & 1 & [('expedition', 'on')] \\
+0,000 & meaning & Can you write a meaning & 0 &  \\
+1,000 & dans & May I have the pleasure of this dans & 1 & [('this', 'dans')] \\
+0,000 & bio & Would you like to go to the bio & 0 &  \\
+1,000 & slang & Use the water slang to water the flowers & 2 & [('water', 'slang'), ('slang', 'to')] \\
+0,500 & bra & It is going to be bra weather tomorrow & 3 & [('be', 'bra'), ('bra', 'weather'), ('weather', 'tomorrow')] \\
+0,333 & fond & I have started a fond for you college fees & 3 & [('fond', 'for'), ('you', 'college'), ('college', 'fees')] \\
+0,000 & disk & I will do the disk & 0 &  \\
+1,000 & mark & Dig a hole in this mark & 1 & [('this', 'mark')] \\
+0,523
