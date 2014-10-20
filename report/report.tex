@@ -5,6 +5,8 @@
 \usepackage{graphics}
 \usepackage{fancyhdr}
 \usepackage{amsmath}
+\usepackage{pdflscape}
+\usepackage{longtable}
 
 \graphicspath{{pictures/}}
 
@@ -134,7 +136,132 @@ TODO
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Experimental results}
 \label{sec:experimentalresults}
-TODO
+
+\begin{landscape}
+\centering
+\begin{longtable}{l l l r l}
+Hitrate & Wrong word & Sentence & Count & Defects found \\
+\hline
+0,000 & smoking & Do you have a smoking & 0 &  \\
+1,000 & pied & It has pied & 1 & (has, pied) \\
+1,000 & overdrive & Do not overdrive & 1 & (not, overdrive) \\
+1,000 & about & Have you changed about & 1 & (changed, about) \\
+0,000 & smell & The door was closed with a smell & 0 &  \\
+0,000 & shoot & Can you shoot the window & 0 &  \\
+1,000 & strike & Do you want to strike your clothes & 1 & (strike, your) \\
+1,000 & bear & I like to eat bear & 1 & (eat, bear) \\
+0,000 & jump & I think I will jump over the tea this morning & 1 & (tea, this) \\
+1,000 & spoiling & We had a problem spoiling the toilet & 2 & (problem, spoiling), (spoiling, the) \\
+1,000 & rapefields & It is probably rapefields & 1 & (probably, rapefields) \\
+1,000 & funny & I always have a funny time at parties & 1 & (funny, time) \\
+1,000 & disabled & Disabled toilet & 1 & (disabled, toilet) \\
+0,000 & are & When are you born & 1 & (you, born) \\
+0,000 & diary & Sorry to hear about your diary & 0 &  \\
+0,000 & kiss & I need to go the the toilet and kiss & 0 &  \\
+1,000 & moose & Can you pass me the potato moose & 1 & (potato, moose) \\
+1,000 & call & This morning was very call & 1 & (very, call) \\
+0,000 & to & She is a friend to me & 0 &  \\
+0,500 & swimming & Could I have some water because my friend is swimming & 2 & (water, because), (is, swimming) \\
+0,000 & lend & I need to lend a pen from you & 1 & (pen, from) \\
+1,000 & were & were are you & 1 & (were, are) \\
+1,000 & learns & He learns children & 1 & (learns, children) \\
+0,500 & controls & He controls passports at the airport & 3 & (he, controls), (controls, passports), (passports, at) \\
+1,000 & semester & We are going on semester together & 2 & (on, semester), (semester, together) \\
+1,000 & drunk & I am back drunk & 1 & (back, drunk) \\
+0,500 & table & I like sandwich table & 2 & (like, sandwich), (sandwich, table) \\
+1,000 & stark & She is very stark & 1 & (very, stark) \\
+1,000 & flipper & I want to play flipper & 1 & (play, flipper) \\
+1,000 & pockets & Have you read any good pockets lately & 2 & (good, pockets), (pockets, lately) \\
+1,000 & vine & Can I have a glass of vine & 1 & (of, vine) \\
+1,000 & basket & Do you want to play basket & 1 & (play, basket) \\
+1,000 & backslick & I have my hair in a backslick & 1 & (a, backslick) \\
+0,000 & receipt & Can I have the receipt for this soup & 1 & (this, soup) \\
+0,000 & photograph & I work as a photograph & 0 &  \\
+0,000 & fall & I am investigating this fall & 2 & (am, investigating), (investigating, this) \\
+0,000 & rent & What is the rent on your bank loan & 0 &  \\
+1,000 & vibrant & My phone is vibrant & 1 & (is, vibrant) \\
+1,000 & glass & I like to eat glass & 1 & (eat, glass) \\
+0,000 & brick & Put the cups on the brick & 1 & (cups, on) \\
+1,000 & island & It is cold in island & 1 & (in, island) \\
+1,000 & barns & These are my barns & 1 & (my, barns) \\
+1,000 & expedition & I am going to the expedition on the fifth floor & 1 & (expedition, on) \\
+0,000 & meaning & Can you write a meaning & 0 &  \\
+1,000 & dans & May I have the pleasure of this dans & 1 & (this, dans) \\
+0,000 & bio & Would you like to go to the bio & 0 &  \\
+1,000 & slang & Use the water slang to water the flowers & 2 & (water, slang), (slang, to) \\
+0,500 & bra & It is going to be bra weather tomorrow & 3 & (be, bra), (bra, weather), (weather, tomorrow) \\
+0,333 & fond & I have started a fond for you college fees & 3 & (fond, for), (you, college), (college, fees) \\
+0,000 & disk & I will do the disk & 0 &  \\
+1,000 & mark & Dig a hole in this mark & 1 & (this, mark) \\
+\hline
+0,531 & total hitrate
+% \caption{Result incorrect sentences.}  % Fick inte caption att funka
+\label{tab:resultincorrect}
+\end{longtable}
+\end{landscape}
+
+\begin{landscape}
+\centering
+\begin{longtable}{l l r l}
+Hitrate & Sentence & Count & Defects found (should be none) \\
+\hline
+0,750 & Do you have a tuxedo & 1 & (a, tuxedo) \\
+1,000 & It broke & 0 &  \\
+0,333 & Do not overdo it & 2 & (not, overdo), (overdo, it) \\
+0,666 & Have you changed outfit & 1 & (changed, outfit) \\
+1,000 & The door was closed with a bang & 0 &  \\
+1,000 & Can you shut the window & 0 &  \\
+0,833 & Do you want to iron your clothes & 1 & (iron, your) \\
+0,750 & I like to eat berries & 1 & (eat, berries) \\
+0,750 & I think I will skip the tea this morning & 2 & (will, skip), (tea, this) \\
+0,666 & We had a problem flushing the toilet & 2 & (problem, flushing), (flushing, the) \\
+0,500 & It is probably rape fields & 2 & (probably, rape), (rape, fields) \\
+1,000 & I always have a fun time at parties & 0 &  \\
+0,750 & Toilet is out of order & 1 & (toilet, is) \\
+0,333 & When were you born & 2 & (when, were), (you, born) \\
+0,800 & Sorry to hear about your diarrhea & 1 & (your, diarrhea) \\
+0,900 & I need to go the the toilet and have a pee & 1 & (a, pee) \\
+0,833 & Can you pass me the mashed potatoes & 1 & (the, mashed) \\
+1,000 & This morning was very cold & 0 &  \\
+1,000 & She is a friend of mine & 0 &  \\
+0,777 & Could I have some water because my friend is fainting & 2 & (water, because), (is, fainting) \\
+0,857 & I need to borrow a pen from you & 1 & (pen, from) \\
+1,000 & where are you & 0 &  \\
+0,500 & He teaches children & 1 & (teaches, children) \\
+0,400 & He checks passports at the airport & 3 & (he, checks), (checks, passports), (passports, at) \\
+0,800 & We are going on holiday together & 1 & (holiday, together) \\
+0,666 & I am hung over & 1 & (am, hung) \\
+0,500 & I like smorgasbords & 1 & (like, smorgasbords) \\
+1,000 & She is very strong & 0 &  \\
+0,750 & I want to play pinball & 1 & (play, pinball) \\
+0,666 & Have you read any good paperbacks lately & 2 & (good, paperbacks), (paperbacks, lately) \\
+1,000 & Can I have a glass of wine & 0 &  \\
+1,000 & Do you want to play basketball & 0 &  \\
+0,833 & I have my hair in a slickback & 1 & (a, slickback) \\
+0,857 & Can I have the recipe for this soup & 1 & (this, soup) \\
+1,000 & I work as a photographer & 0 &  \\
+0,500 & I am investigating this case & 2 & (am, investigating), (investigating, this) \\
+1,000 & What is the interest on your bank loan & 0 &  \\
+0,666 & My phone is vibrating & 1 & (is, vibrating) \\
+0,800 & I like to eat ice cream & 1 & (eat, ice) \\
+0,800 & Put the cups on the tray & 1 & (cups, on) \\
+0,750 & It is cold in Iceland & 1 & (in, iceland) \\
+1,000 & These are my children & 0 &  \\
+1,000 & I am going to the office on the fifth floor & 0 &  \\
+1,000 & Can you write a sentence & 0 &  \\
+0,857 & May I have the pleasure of this dance & 1 & (this, dance) \\
+1,000 & Would you like to go to the cinema & 0 &  \\
+0,714 & Use the water hose to water the flowers & 2 & (water, hose), (hose, to) \\
+0,857 & It is going to be good weather tomorrow & 1 & (weather, tomorrow) \\
+0,750 & I have started a fund for you college fees & 2 & (you, college), (college, fees) \\
+1,000 & I will do the dishes & 0 &  \\
+1,000 & Dig a hole in this ground & 0 &  \\
+\hline
+0,825 & hitrate
+% \caption{Result correct sentences.}  % Fick inte caption att funka
+\label{tab:resultcorrect}
+\end{longtable}
+\end{landscape}
 
 \subsection{Experimental setup}
 TODO
