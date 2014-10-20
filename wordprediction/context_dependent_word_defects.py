@@ -11,16 +11,11 @@ def get_defects_in_correct_sentences():
     filename = 'correct_sentences.txt'
     usertext = os.path.join(current_directory, directory, filename)
     corpus = Corpus()
-    print('#'.join(
+    print(' & '.join(
         ['Hitrate',
-         'Correct',
-         'Not detected',
-         'Incorrect',
          'Sentence',
          'Nr defects found',
-         'Defects found',
-         'Nr bigrams',
-         'Bigrams']
+         'Defects found']
     ))
     with open(usertext, 'r') as f:
         total_correct = 0
@@ -38,23 +33,15 @@ def get_defects_in_correct_sentences():
             not_detected = 0
             total_incorrect += incorrect
             total_correct += correct
-            print('{0}#{1}#{2}#{3}#{4}#{5}#{6}#{7}#{8}'.format(
+            print('{0} & {1} & {2} & {3} \\\\'.format(
                 str(get_z(correct, not_detected, incorrect).quantize(Decimal('.001'), rounding=ROUND_DOWN)).replace('.', ','),
-                correct,
-                not_detected,
-                incorrect,
                 line.strip(),
                 len(defects),
-                defects,
-                len(bigrams),
-                bigrams,
-            ))
+                '' if len(defects) == 0 else defects,
+                ))
         total_not_detected = 0
-        print('{0}#{1}#{2}#{3}'.format(
+        print('{0}'.format(
             str(get_z(total_correct, total_not_detected, total_incorrect).quantize(Decimal('.001'), rounding=ROUND_DOWN)).replace('.', ','),
-            total_correct,
-            total_not_detected,
-            total_incorrect,
         ))
 
 
@@ -206,5 +193,5 @@ def get_defects_in_false_friends():
 
 if __name__ == '__main__':
     #  get_result_for_sentences()
-    get_defects_in_false_friends()
-    #  get_defects_in_correct_sentences()
+    #  get_defects_in_false_friends()
+    get_defects_in_correct_sentences()
