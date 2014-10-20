@@ -12,7 +12,7 @@ rapefields;It is probably rapefields
 funny;I always have a funny time at parties
 disabled;Disabled toilet
 are;When are you born
-diary;Sorry to hear about your diary.
+diary;Sorry to hear about your diary
 kiss;I need to go the the toilet and kiss
 moose;Can you pass me the potato moose
 call;This morning was very call

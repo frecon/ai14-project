@@ -1,4 +1,5 @@
-Hitrate & Wrong word & Sentence & Nr defects found & Defects found
+Hitrate & Wrong word & Sentence & Nr defects found & Defects found \\
+\hline
 0,000 & smoking & Do you have a smoking & 0 &  \\
 1,000 & pied & It has pied & 1 & (has, pied) \\
 1,000 & overdrive & Do not overdrive & 1 & (not, overdrive) \\
@@ -13,7 +14,7 @@ Hitrate & Wrong word & Sentence & Nr defects found & Defects found
 1,000 & funny & I always have a funny time at parties & 1 & (funny, time) \\
 1,000 & disabled & Disabled toilet & 1 & (disabled, toilet) \\
 0,000 & are & When are you born & 1 & (you, born) \\
-0,000 & diary & Sorry to hear about your diary. & 1 & (your, diary.) \\
+0,000 & diary & Sorry to hear about your diary & 0 &  \\
 0,000 & kiss & I need to go the the toilet and kiss & 0 &  \\
 1,000 & moose & Can you pass me the potato moose & 1 & (potato, moose) \\
 1,000 & call & This morning was very call & 1 & (very, call) \\
@@ -50,4 +51,5 @@ Hitrate & Wrong word & Sentence & Nr defects found & Defects found
 0,333 & fond & I have started a fond for you college fees & 3 & (fond, for), (you, college), (college, fees) \\
 0,000 & disk & I will do the disk & 0 &  \\
 1,000 & mark & Dig a hole in this mark & 1 & (this, mark) \\
-0,523
+\hline
+0,531

@@ -14,9 +14,10 @@ def get_defects_in_correct_sentences():
     print(' & '.join(
         ['Hitrate',
          'Sentence',
-         'Nr defects found',
-         'Defects found']
+         'Count',
+         'Defects found \\\\']
     ))
+    print('\\hline')
     with open(usertext, 'r') as f:
         total_correct = 0
         total_incorrect = 0
@@ -40,7 +41,8 @@ def get_defects_in_correct_sentences():
                 '' if len(defects) == 0 else defects,
                 ))
         total_not_detected = 0
-        print('{0}'.format(
+        print('\\hline')
+        print('{0} & hitrate'.format(
             str(get_z(total_correct, total_not_detected, total_incorrect).quantize(Decimal('.001'), rounding=ROUND_DOWN)).replace('.', ','),
         ))
 
@@ -159,8 +161,9 @@ def get_defects_in_false_friends():
          'Wrong word',
          'Sentence',
          'Nr defects found',
-         'Defects found']
+         'Defects found \\\\']
     ))
+    print('\\hline')
     with open(usertext, 'r') as f:
         total_correct = 0
         total_not_detected = 0
@@ -186,7 +189,8 @@ def get_defects_in_false_friends():
                 len(found_defects),
                 '' if len(found_defects) == 0 else found_defects,
             ))
-        print('{0}'.format(
+        print('\\hline')
+        print('{0} & hitrate'.format(
             str(get_z(total_correct, total_not_detected, total_incorrect).quantize(Decimal('.001'), rounding=ROUND_DOWN)).replace('.', ','),
         ))
 

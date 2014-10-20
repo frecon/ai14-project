@@ -1,4 +1,5 @@
-Hitrate & Sentence & Nr defects found & Defects found
+Hitrate & Sentence & Count & Defects found \\
+\hline
 0,750 & Do you have a tuxedo & 1 & (a, tuxedo) \\
 1,000 & It broke & 0 &  \\
 0,333 & Do not overdo it & 2 & (not, overdo), (overdo, it) \\
@@ -50,4 +51,5 @@ Hitrate & Sentence & Nr defects found & Defects found
 0,750 & I have started a fund for you college fees & 2 & (you, college), (college, fees) \\
 1,000 & I will do the dishes & 0 &  \\
 1,000 & Dig a hole in this ground & 0 &  \\
-0,825
+\hline
+0,825 & hitrate
