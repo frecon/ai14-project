@@ -11,28 +11,51 @@ def get_defects_in_correct_sentences():
     filename = 'correct_sentences.txt'
     usertext = os.path.join(current_directory, directory, filename)
     corpus = Corpus()
+    print('#'.join(
+        ['Hitrate',
+         'Correct',
+         'Not detected',
+         'Incorrect',
+         'Sentence',
+         'Nr defects found',
+         'Defects found',
+         'Nr bigrams',
+         'Bigrams']
+    ))
     with open(usertext, 'r') as f:
         total_correct = 0
         total_incorrect = 0
         for line in f:
-            print(line.strip())
             words = line.split()
             bigrams = list(get_bigrams(words))
             nr_of_bigrams = len(bigrams)
-            print('Found {0} bigrams {1}'.format(nr_of_bigrams, bigrams))
-            bigrams = get_bigrams(words)
             defects = []
             for bigram in bigrams:
                 if not corpus.bigram_exists(bigram):
                     defects.append(bigram)
             incorrect = len(defects)
             correct = nr_of_bigrams - incorrect
+            not_detected = 0
             total_incorrect += incorrect
             total_correct += correct
-            print('Found {0} defects {1}'.format(incorrect, defects))
-            print('z = {0}'.format(get_z(correct, 0, incorrect)))
-            print('')
-        print('tot z = {0}'.format(get_z(total_correct, 0, total_incorrect)))
+            print('{0}#{1}#{2}#{3}#{4}#{5}#{6}#{7}#{8}'.format(
+                str(get_z(correct, not_detected, incorrect).quantize(Decimal('.001'), rounding=ROUND_DOWN)).replace('.', ','),
+                correct,
+                not_detected,
+                incorrect,
+                line.strip(),
+                len(defects),
+                defects,
+                len(bigrams),
+                bigrams,
+            ))
+        total_not_detected = 0
+        print('{0}#{1}#{2}#{3}'.format(
+            str(get_z(total_correct, total_not_detected, total_incorrect).quantize(Decimal('.001'), rounding=ROUND_DOWN)).replace('.', ','),
+            total_correct,
+            total_not_detected,
+            total_incorrect,
+        ))
 
 
 def get_result_for_sentences():
@@ -88,7 +111,7 @@ def get_result_for_sentences():
                 bigrams,
             ))
         print('{0}#{1}#{2}#{3}'.format(
-            str(get_z(total_correct, total_incorrect, total_not_detected).quantize(Decimal('.001'), rounding=ROUND_DOWN)).replace('.', ','),
+            str(get_z(total_correct, total_not_detected, total_incorrect).quantize(Decimal('.001'), rounding=ROUND_DOWN)).replace('.', ','),
             total_correct,
             total_not_detected,
             total_incorrect,
@@ -138,5 +161,66 @@ def get_defects(usertext_filename, corpuses=None):
     return defects
 
 
+def get_defects_in_false_friends():
+    current_directory = os.path.abspath(os.getcwd())
+    directory = 'usertexts'
+    filename = 'false_friends.txt'
+    usertext = os.path.join(current_directory, directory, filename)
+    corpus = Corpus()
+    print('#'.join(
+        ['Hitrate',
+         'Correct',
+         'Not detected',
+         'Incorrect',
+         'Wrong word',
+         'Sentence',
+         'Correct defects',
+         'Nr defects found',
+         'Defects found',
+         'Nr bigrams',
+         'Bigrams']
+    ))
+    with open(usertext, 'r') as f:
+        total_correct = 0
+        total_not_detected = 0
+        total_incorrect = 0
+        for line in f:
+            if len(line) == 0:
+                continue
+            false_word, sentence = line.split(';')
+            words = sentence.split()
+            bigrams = list(get_bigrams(sentence.split()))
+            found_defects = []
+            for bigram in get_bigrams(words):
+                if not corpus.bigram_exists(bigram):
+                    found_defects.append(bigram)
+            correct_defects = get_correct_defects(get_bigrams(words), false_word)
+            correct, not_detected, incorrect = get_hitrate_for_bigrams(correct_defects, found_defects)
+            total_correct += correct
+            total_incorrect += incorrect
+            total_not_detected += not_detected
+            print('{0}#{1}#{2}#{3}#{4}#{5}#{6}#{7}#{8}#{9}#{10}'.format(
+                str(get_z(correct, not_detected, incorrect).quantize(Decimal('.001'), rounding=ROUND_DOWN)).replace('.', ','),
+                correct,
+                not_detected,
+                incorrect,
+                false_word,
+                sentence.strip(),
+                correct_defects,
+                len(found_defects),
+                found_defects,
+                len(bigrams),
+                bigrams,
+            ))
+        print('{0}#{1}#{2}#{3}'.format(
+            str(get_z(total_correct, total_not_detected, total_incorrect).quantize(Decimal('.001'), rounding=ROUND_DOWN)).replace('.', ','),
+            total_correct,
+            total_not_detected,
+            total_incorrect,
+            ))
+
+
 if __name__ == '__main__':
-    get_result_for_sentences()
+    #  get_result_for_sentences()
+    get_defects_in_false_friends()
+    #  get_defects_in_correct_sentences()
