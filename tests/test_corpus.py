@@ -124,3 +124,8 @@ class TestCorpus(unittest.TestCase):
         bigram = (b'personally', b'led')
         actual = self.corpus.bigram_exists(bigram)
         self.assertEqual(True, actual)
+
+    def test_count_nr_of_bigrams(self):
+        bigrams = set(self.corpus.finder.ngram_fd.keys())
+        tot_bigrams = bigrams.union(set(self.corpus._bigrams))
+        self.assertEqual(627353, len(tot_bigrams))
