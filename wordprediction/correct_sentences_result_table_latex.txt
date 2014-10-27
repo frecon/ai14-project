@@ -1,0 +1,55 @@
+Hitrate & Sentence & Count & Defects found \\
+\hline
+0,750 & Do you have a tuxedo & 1 & (a, tuxedo) \\
+1,000 & It broke & 0 &  \\
+0,333 & Do not overdo it & 2 & (not, overdo), (overdo, it) \\
+0,666 & Have you changed outfit & 1 & (changed, outfit) \\
+1,000 & The door was closed with a bang & 0 &  \\
+1,000 & Can you shut the window & 0 &  \\
+0,833 & Do you want to iron your clothes & 1 & (iron, your) \\
+0,750 & I like to eat berries & 1 & (eat, berries) \\
+0,750 & I think I will skip the tea this morning & 2 & (will, skip), (tea, this) \\
+0,666 & We had a problem flushing the toilet & 2 & (problem, flushing), (flushing, the) \\
+0,500 & It is probably rape fields & 2 & (probably, rape), (rape, fields) \\
+1,000 & I always have a fun time at parties & 0 &  \\
+0,750 & Toilet is out of order & 1 & (toilet, is) \\
+0,333 & When were you born & 2 & (when, were), (you, born) \\
+0,800 & Sorry to hear about your diarrhea & 1 & (your, diarrhea) \\
+0,900 & I need to go the the toilet and have a pee & 1 & (a, pee) \\
+0,833 & Can you pass me the mashed potatoes & 1 & (the, mashed) \\
+1,000 & This morning was very cold & 0 &  \\
+1,000 & She is a friend of mine & 0 &  \\
+0,777 & Could I have some water because my friend is fainting & 2 & (water, because), (is, fainting) \\
+0,857 & I need to borrow a pen from you & 1 & (pen, from) \\
+1,000 & where are you & 0 &  \\
+0,500 & He teaches children & 1 & (teaches, children) \\
+0,400 & He checks passports at the airport & 3 & (he, checks), (checks, passports), (passports, at) \\
+0,800 & We are going on holiday together & 1 & (holiday, together) \\
+0,666 & I am hung over & 1 & (am, hung) \\
+0,500 & I like smorgasbords & 1 & (like, smorgasbords) \\
+1,000 & She is very strong & 0 &  \\
+0,750 & I want to play pinball & 1 & (play, pinball) \\
+0,666 & Have you read any good paperbacks lately & 2 & (good, paperbacks), (paperbacks, lately) \\
+1,000 & Can I have a glass of wine & 0 &  \\
+1,000 & Do you want to play basketball & 0 &  \\
+0,833 & I have my hair in a slickback & 1 & (a, slickback) \\
+0,857 & Can I have the recipe for this soup & 1 & (this, soup) \\
+1,000 & I work as a photographer & 0 &  \\
+0,500 & I am investigating this case & 2 & (am, investigating), (investigating, this) \\
+1,000 & What is the interest on your bank loan & 0 &  \\
+0,666 & My phone is vibrating & 1 & (is, vibrating) \\
+0,800 & I like to eat ice cream & 1 & (eat, ice) \\
+0,800 & Put the cups on the tray & 1 & (cups, on) \\
+0,750 & It is cold in Iceland & 1 & (in, iceland) \\
+1,000 & These are my children & 0 &  \\
+1,000 & I am going to the office on the fifth floor & 0 &  \\
+1,000 & Can you write a sentence & 0 &  \\
+0,857 & May I have the pleasure of this dance & 1 & (this, dance) \\
+1,000 & Would you like to go to the cinema & 0 &  \\
+0,714 & Use the water hose to water the flowers & 2 & (water, hose), (hose, to) \\
+0,857 & It is going to be good weather tomorrow & 1 & (weather, tomorrow) \\
+0,750 & I have started a fund for you college fees & 2 & (you, college), (college, fees) \\
+1,000 & I will do the dishes & 0 &  \\
+1,000 & Dig a hole in this ground & 0 &  \\
+\hline
+0,825 & hitrate
