@@ -15,3 +15,11 @@ hs_err_pid*
 # Compiled LaTeX files for report
 report/*.pdf
 report/*.aux
+ai14-report-template.log
+ai14-report-template.synctex.gz
+*.bbl
+*.blg
+*.dvi
+*.log
+*.synctex.gz
+texput.log
