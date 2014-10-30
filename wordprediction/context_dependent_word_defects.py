@@ -7,7 +7,8 @@ from wordprediction.corpus import Corpus, generate_words
 
 
 def get_defects_in_correct_sentences():
-    current_directory = os.path.abspath(os.getcwd())
+    #  current_directory = os.path.abspath(os.getcwd())
+    current_directory = os.path.dirname(__file__)
     directory = 'usertexts'
     filename = 'correct_sentences.txt'
     usertext = os.path.join(current_directory, directory, filename)

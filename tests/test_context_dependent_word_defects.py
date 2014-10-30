@@ -3,7 +3,6 @@ import os
 
 from wordprediction.context_dependent_word_defects import (
     get_defects,
-    get_defects_in_correct_sentences,
     get_bigrams,
 )
 
@@ -33,9 +32,6 @@ class GetDefects(unittest.TestCase):
         expected = []
         self.assertEqual(expected, actual)
 
-    def test_get_defects_in_correct_sentences(self):
-        actual = get_defects_in_correct_sentences()
-        self.assertEqual([], actual)
 
 class TestGrams(unittest.TestCase):
     def test_bigrams(self):
