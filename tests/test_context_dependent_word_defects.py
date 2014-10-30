@@ -40,19 +40,16 @@ class GetDefects(unittest.TestCase):
 class TestGrams(unittest.TestCase):
     def test_bigrams(self):
         text = "I like AI. It's the best course ever."
-        actual = get_bigrams(text)
+        actual = get_bigrams(text.split())
         expected = [
-            ('I', 'like'),
-            ('like', 'ai'),
-            ('ai', '.'),
-            ('.', 'it'),
-            ('it', "'s"),
-            ("'s", "the"),
+            ('i', 'like'),
+            ('like', 'ai.'),
+            ('ai.', "it's"),
+            ("it's", "the"),
             ('the', 'best'),
             ('best', 'course'),
-            ('course', 'ever'),
-            ('ever', '.'),
-            ]
+            ('course', 'ever.'),
+        ]
         self.assertEqual(expected, list(actual))
 
 def find_ngrams(input_list, n):
