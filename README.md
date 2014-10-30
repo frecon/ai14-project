@@ -1,4 +1,7 @@
-ai14-project
+Detecting context-dependent word defects in written English by native Swedes with n-grams
 ============
 
-Project assignment, you will work in a group and investigate methods for automatic text generation. Your goal is to understand, describe, and produce a system for text generation. 
+This is part of a school assignment in the course DD2380 Artificial Intelligence at KTH.
+The code is only for testing purpose and not useful for production use.
+
+http://www.kth.se/student/kurser/kurs/DD2380?l=en
