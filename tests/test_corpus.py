@@ -9,29 +9,29 @@ from wordprediction.corpus import (
 
 
 class TestCorpus(unittest.TestCase):
-    def setUp(self):
+    @classmethod
+    def setUpClass(cls):
+        cls.corpus = Corpus()
         current_directory = os.path.dirname(__file__)
-        self.corpus_one = os.path.join(current_directory, 'corpus', 'one.txt')
-        self.corpus_two = os.path.join(current_directory, 'corpus', 'two.txt')
-        self.corpus = Corpus()
+        cls.corpus_one = os.path.join(current_directory, 'corpus', 'one.txt')
+        cls.corpus_two = os.path.join(current_directory, 'corpus', 'two.txt')
+        cls.corpus_one_txt = Corpus(cls.corpus_one)
+        files = [cls.corpus_one, cls.corpus_two]
+        cls.corpus_both = Corpus(files)
 
     def test_bigram_score(self):
         bigram = (b'I', b'like')
-        corpus = Corpus(self.corpus_one)
-        actual = corpus.bigram_score(bigram)
+        actual = self.corpus_one_txt.bigram_score(bigram)
         self.assertEqual(0.14285714285714285, actual)
 
     def test_bigram_score_for_nonexisting_bigram(self):
         bigram = (b'Maja', b'like')
-        corpus = Corpus(self.corpus_one)
-        actual = corpus.bigram_score(bigram)
+        actual = self.corpus_one_txt.bigram_score(bigram)
         self.assertEqual(None, actual)
 
     def test_bigram_score_multiple_corpus(self):
         bigram = (b'I', b'like')
-        files = [self.corpus_one, self.corpus_two]
-        corpus = Corpus(files)
-        actual = corpus.bigram_score(bigram)
+        actual = self.corpus_both.bigram_score(bigram)
         self.assertEqual(0.06666666666666667, actual)
 
     def test_generate_words_from_one_corpus(self):
@@ -114,9 +114,8 @@ class TestCorpus(unittest.TestCase):
         self.assertEqual(False, self.corpus.bigram_exists(bigram))
 
     def test_bigram_exists_multiple_corpus(self):
-        corpus = Corpus(self.corpus_one)
         bigram = (b'like', b'ai')
-        actual = corpus.bigram_exists(bigram)
+        actual = self.corpus_one_txt.bigram_exists(bigram)
         self.assertEqual(True, actual)
 
     def test_bigram_exists_multiple_corpus_hela_skiten(self):
