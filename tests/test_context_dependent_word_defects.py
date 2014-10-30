@@ -4,10 +4,8 @@ import os
 from wordprediction.context_dependent_word_defects import (
     get_defects,
     get_defects_in_correct_sentences,
-    get_result_for_sentences,
+    get_bigrams,
 )
-from wordprediction.corpus import generate_words
-from wordprediction.project_input import get_bigrams
 
 
 class GetDefects(unittest.TestCase):
@@ -39,6 +37,23 @@ class GetDefects(unittest.TestCase):
         actual = get_defects_in_correct_sentences()
         self.assertEqual([], actual)
 
+class TestGrams(unittest.TestCase):
+    def test_bigrams(self):
+        text = "I like AI. It's the best course ever."
+        actual = get_bigrams(text)
+        expected = [
+            ('I', 'like'),
+            ('like', 'ai'),
+            ('ai', '.'),
+            ('.', 'it'),
+            ('it', "'s"),
+            ("'s", "the"),
+            ('the', 'best'),
+            ('best', 'course'),
+            ('course', 'ever'),
+            ('ever', '.'),
+            ]
+        self.assertEqual(expected, list(actual))
 
 def find_ngrams(input_list, n):
     return zip(*[input_list[i:] for i in range(n)])

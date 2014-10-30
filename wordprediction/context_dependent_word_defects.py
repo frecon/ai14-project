@@ -1,7 +1,8 @@
 from decimal import Decimal, ROUND_DOWN
 import os
 
-from wordprediction.project_input import get_bigrams
+from nltk import bigrams
+
 from wordprediction.corpus import Corpus, generate_words
 
 
@@ -194,6 +195,9 @@ def get_defects_in_false_friends():
             str(get_z(total_correct, total_not_detected, total_incorrect).quantize(Decimal('.001'), rounding=ROUND_DOWN)).replace('.', ','),
         ))
 
+def get_bigrams(words):
+    """From a list of words, bigrams are constructed and returned"""
+    return bigrams([word.lower() for word in words])
 
 if __name__ == '__main__':
     #  get_result_for_sentences()
